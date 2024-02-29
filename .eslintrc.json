@@ -36,6 +36,7 @@
     "project": ["./tsconfig.json"]
   },
   "rules": {
+    "import/no-anonymous-default-export": "off",
     "no-unused-vars": [
       "error",
       {
@@ -45,12 +46,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "react-refresh/only-export-components": [
-      "warn",
-      {
-        "allowConstantExport": true
-      }
-    ],
+    "react-refresh/only-export-components": "off",
     "react/react-in-jsx-scope": "off",
     "mobx/exhaustive-make-observable": "warn",
     "mobx/unconditional-make-observable": "error",
