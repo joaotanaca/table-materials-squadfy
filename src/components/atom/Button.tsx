@@ -16,9 +16,10 @@ const formats = {
 type Props = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
   color?: keyof typeof colors;
   format?: keyof typeof formats;
+  className?: string;
 };
 
-const Button = ({ color = 'success', format = 'default', className, children, ...props }: Props) => {
+const Button = ({ color = 'success', format = 'default', className = '', children, ...props }: Props) => {
   return (
     <button className={`${className} ${colors[color]} ${formats[format]}`} {...props}>
       {children}
