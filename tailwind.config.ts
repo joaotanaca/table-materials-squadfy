@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -8,9 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        1: '1px',
+      },
       colors: {
-        moss: { 200: 'var(--moss-200)', 300: 'var(--moss-300)' },
+        moss: { 200: 'var(--moss-200)', 300: 'var(--moss-300)', 500: 'var(--moss-500)' },
         success: 'var(--success)',
+      },
+      fontFamily: {
+        heineken: ['"HEINEKEN Core"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
