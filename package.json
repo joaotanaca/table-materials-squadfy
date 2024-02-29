@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier . --log-level warn"
+    "prettier": "prettier . --log-level warn",
+    "server": "node database/index.js && npx json-server -p 3001 database/database.json"
   },
   "dependencies": {
     "next": "14.1.0",
