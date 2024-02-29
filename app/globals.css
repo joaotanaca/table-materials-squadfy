@@ -3,31 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --success: #288154;
+  --moss-200: #eef0eb;
+  --moss-300: #d2d7cb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: HEINEKEN Core;
+  src: url('/assets/fonts/HEINEKEN Core.eot');
+  src:
+    url('/assets/fonts/HEINEKEN Core.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/HEINEKEN Core.woff') format('woff'),
+    url('/assets/fonts/HEINEKEN Core.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: HEINEKEN Core;
+  src: url('/assets/fonts/HEINEKEN Core-Italic.eot');
+  src:
+    url('/assets/fonts/HEINEKEN Core-Italic.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/HEINEKEN Core-Italic.woff') format('woff'),
+    url('/assets/fonts/HEINEKEN Core-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  font-family: HEINEKEN Core;
 }
