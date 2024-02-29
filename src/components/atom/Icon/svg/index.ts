@@ -1,5 +1,9 @@
+import Arrow from './arrow';
 import Search from './search';
 
-export default {
+const icons = {
   search: Search,
+  arrow: Arrow,
 };
+
+export default icons;
