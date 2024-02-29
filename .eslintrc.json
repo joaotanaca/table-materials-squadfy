@@ -16,7 +16,7 @@
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended"
   ],
-  "ignorePatterns": ["dist", ".eslintrc.cjs"],
+  "ignorePatterns": ["dist", ".eslintrc.json", "database/index.js"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh", "mobx", "@typescript-eslint", "import"],
   "settings": {

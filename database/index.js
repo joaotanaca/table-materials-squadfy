@@ -24,5 +24,7 @@ for (let index = 0; index < 1000; index++) {
     minimum_quantity,
   });
 }
-fs.unlinkSync('./database/database.json', () => {});
+try {
+  fs.unlinkSync('./database/database.json', () => {});
+} catch {}
 fs.writeFileSync('./database/database.json', JSON.stringify({ products: json }), 'utf8', () => {});
