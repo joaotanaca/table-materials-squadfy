@@ -37,7 +37,7 @@ const Row = ({ columns, value }: Props) => {
       }),
     [columns, value],
   );
-  return <tr className={`table table-fixed w-full ${hidden}`}>{Columns}</tr>;
+  return <tr className={`table table-fixed w-full border-moss-300 border-b-1 ${hidden}`}>{Columns}</tr>;
 };
 
 export default memo(Row);

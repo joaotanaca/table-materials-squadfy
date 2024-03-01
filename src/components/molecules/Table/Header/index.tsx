@@ -18,7 +18,7 @@ const Header = () => {
     [headers],
   );
   return (
-    <tr className="text-base text-left text-moss-500 bg-moss-200 px-4 py-3 font-normal table table-fixed w-full">
+    <tr className="text-base text-left text-moss-500 bg-moss-200 px-4 py-3 font-normal table table-fixed w-full border-moss-300 border-y-1">
       {HeaderColumns}
     </tr>
   );
