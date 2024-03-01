@@ -14,6 +14,9 @@ const config: Config = {
       },
       colors: {
         moss: { 200: 'var(--moss-200)', 300: 'var(--moss-300)', 500: 'var(--moss-500)' },
+        gray: {
+          800: 'var(--gray-800)',
+        },
         success: 'var(--success)',
       },
       fontFamily: {

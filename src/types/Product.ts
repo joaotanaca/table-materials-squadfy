@@ -5,4 +5,6 @@ export type Product = {
   brand: string;
   price: string;
   minimum_quantity: number;
+  unit_quantity: number;
+  subtotal: number;
 };
