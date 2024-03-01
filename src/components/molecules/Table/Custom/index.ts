@@ -1,7 +1,7 @@
-import SubtotalColumn from './SubtotalColumn';
+import PriceColumn from './PriceColumn';
 import UnitQuantityColumn from './UnitQuantityColumn';
 
 export default {
-  subtotal: SubtotalColumn,
+  price: PriceColumn,
   unit_quantity: UnitQuantityColumn,
 };
