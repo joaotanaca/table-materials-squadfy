@@ -5,6 +5,7 @@ import { DataTableStore, HydrateAtoms, headersAtom, rowsAtom } from '@/src/store
 import { Rows } from '@/src/types/Rows';
 import Custom from '../molecules/Table/Custom';
 import { Provider } from 'jotai';
+import Footer from '../molecules/Table/Footer';
 
 export type TableHeader = ColumnProps & {
   name: string;
@@ -15,10 +16,9 @@ export type TableHeader = ColumnProps & {
 type Props = React.DetailedHTMLProps<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> & {
   headers: TableHeader[];
   rows: Rows;
-  footer?: () => JSX.Element;
 };
 
-const DataTable = ({ headers, rows, footer: Footer, ...props }: Props) => {
+const DataTable = ({ headers, rows, ...props }: Props) => {
   return (
     <Provider store={DataTableStore}>
       <HydrateAtoms
@@ -32,10 +32,10 @@ const DataTable = ({ headers, rows, footer: Footer, ...props }: Props) => {
           <thead className="block w-full pr-[15px]">
             <Table.Header.Component />
           </thead>
-          <tbody className="block w-full h-[60vh] overflow-auto">
+          <tbody className="block w-full h-[50vh] overflow-auto">
             <Table.Rows rows={rows} />
           </tbody>
-          {Footer ? <Footer /> : null}
+          <Footer />
         </table>
       </HydrateAtoms>
     </Provider>
