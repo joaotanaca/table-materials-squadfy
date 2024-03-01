@@ -1,20 +1,25 @@
-import Table from '@/src/components/molecules/Table';
+import FooterWithTotal from '@/src/components/molecules/Table/Custom/FooterWithTotal';
+import DataTable from '@/src/components/organisms/DataTable';
 import service from '@/src/service';
 
 export default async function Home() {
   const products = await service.products.get();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-10">
-      {products.map(({ id, name }) => (
-        <div key={id}>{name}</div>
-      ))}
-      <table className='w-full'>
-        <Table.Header.Container>
-          <Table.Header.Column>Test</Table.Header.Column>
-          <Table.Header.Column>Preço</Table.Header.Column>
-          <Table.Header.Column>Unidade</Table.Header.Column>
-        </Table.Header.Container>
-      </table>
+    <main className="flex flex-col items-center justify-between py-10">
+      <DataTable
+        className="w-full"
+        headers={[
+          { label: 'Material', name: 'name' },
+          { label: 'Tipo de material', name: 'type' },
+          { label: 'Marca', name: 'brand' },
+          { label: 'Preço', name: 'price', position: 'right' },
+          { label: 'Quantidade mínima', name: 'minimum_quantity', position: 'right' },
+          { label: 'Quantidade unitária', name: 'unit_quantity', custom: 'unit_quantity', position: 'right' },
+          { label: 'Subtotal', name: 'subtotal', custom: 'subtotal', position: 'right' },
+        ]}
+        rows={products}
+        footer={FooterWithTotal as unknown as () => JSX.Element}
+      />
     </main>
   );
 }

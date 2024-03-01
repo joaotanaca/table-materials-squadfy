@@ -1,6 +1,12 @@
 import Header from './Header';
-import Column from './Header/Column';
+import HeaderColumn from './Header/Column';
+import SearchInput from './Header/SearchInput';
+import Row from './Row';
+import RowColumn from './Row/Column';
+import Rows from './Rows';
 
 export default {
-  Header: { Container: Header, Column: Column },
+  Header: { Component: Header, Column: HeaderColumn, SearchInput },
+  Row: { Component: Row, Column: RowColumn },
+  Rows,
 };
