@@ -6,6 +6,7 @@ import { Rows } from '@/src/types/Rows';
 import Custom from '../molecules/Table/Custom';
 import { Provider } from 'jotai';
 import Footer from '../molecules/Table/Footer';
+import SubmitButtom from '../molecules/Table/Footer/SubmitButton';
 
 export type TableHeader = ColumnProps & {
   name: string;
@@ -37,6 +38,7 @@ const DataTable = ({ headers, rows, ...props }: Props) => {
           </tbody>
           <Footer />
         </table>
+        <SubmitButtom />
       </HydrateAtoms>
     </Provider>
   );

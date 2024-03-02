@@ -4,12 +4,12 @@ import { atom, createStore } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
 import { Rows } from '../types/Rows';
 import { TableHeader } from '../components/organisms/DataTable';
-import { WritableAtom } from 'jotai/vanilla';
 
-type HydrateAtomsProps = { initialValues: Map<WritableAtom<Rows | TableHeader[], any[], any>, unknown> };
+type HydrateAtomsProps = { initialValues: any };
 
 export const rowsAtom = atom([] as Rows);
 export const headersAtom = atom([] as TableHeader[]);
+export const searchAtom = atom('');
 export const totalAtom = atom(0);
 export const totalFormatedAtom = atom((get) =>
   get(totalAtom).toLocaleString('pt-BR', {
@@ -19,7 +19,6 @@ export const totalFormatedAtom = atom((get) =>
     minimumFractionDigits: 2,
   }),
 );
-export const searchAtom = atom('');
 
 export const DataTableStore = createStore();
 

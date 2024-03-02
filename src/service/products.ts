@@ -6,4 +6,11 @@ export default {
     const response = await api('products');
     return response.json();
   },
+  async post(body: Product[]): Promise<undefined> {
+    await api('products', {
+      body: JSON.stringify(body),
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    });
+  },
 };
