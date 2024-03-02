@@ -1,8 +1,8 @@
 import DataTable from '@/src/components/organisms/DataTable';
 import service from '@/src/service';
 
-export default async function Home() {
-  const products = await service.products.get();
+export default async function Page() {
+  const { products, totalPrice } = await service.products.get();
   return (
     <main className="flex flex-col items-center justify-between pt-10">
       <DataTable
@@ -17,6 +17,7 @@ export default async function Home() {
           { label: 'Subtotal', name: 'subtotal', custom: 'price', position: 'right' },
         ]}
         rows={products}
+        initialTotalPrice={totalPrice}
       />
     </main>
   );

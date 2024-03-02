@@ -7,8 +7,11 @@ import { useAtomValue } from 'jotai';
 
 const SubmitButtom: React.FC = () => {
   const rows = useAtomValue(rowsAtom);
-  const handleSubmitProducts = () => {
-    saveProducts(rows);
+  const handleSubmitProducts: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const response = await saveProducts(rows);
+    localStorage.setItem('products', JSON.stringify(response));
   };
   return (
     <div className="w-full flex justify-end mt-10">

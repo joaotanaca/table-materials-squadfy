@@ -4,5 +4,5 @@ import service from '../service';
 import { Product } from '../types/Product';
 
 export async function saveProducts(body: Product[]) {
-  await service.products.post(body);
+  return service.products.post(body) as unknown as Promise<Product[]>;
 }
