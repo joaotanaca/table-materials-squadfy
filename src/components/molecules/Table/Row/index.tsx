@@ -4,23 +4,26 @@ import React, { Fragment, memo, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TableHeader } from '@/src/components/organisms/DataTable';
 import Column from './Column';
-import { Row } from '@/src/types/Rows';
 import Custom from '../Custom';
 import { useAtomValue } from 'jotai';
 import { searchAtom } from '@/src/store/DataTable';
+import { Product } from '@/src/types/Product';
 
 type Props = {
   columns: TableHeader[];
-  value: Row;
+  value: Product;
 };
 const Row = ({ columns, value }: Props) => {
   const search = useAtomValue(searchAtom);
   const hidden = useMemo(
     () =>
-      !search || (value?.name as string).toLowerCase().toLowerCase().includes(search.toLowerCase())
+      !search ||
+      value?.name?.toLowerCase().includes(search.toLowerCase()) ||
+      value?.type?.toLowerCase().includes(search.toLowerCase()) ||
+      value?.brand?.toLowerCase().includes(search.toLowerCase())
         ? 'block'
         : 'hidden',
-    [search, value?.name],
+    [search, value],
   );
 
   const Columns = useMemo(
