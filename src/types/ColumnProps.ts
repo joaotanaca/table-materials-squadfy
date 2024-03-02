@@ -1,7 +1,7 @@
 import positions from '../constants/positions';
+import { Product } from './Product';
 
-export type ColumnProps = {
+export type ColumnProps = Product & {
   position?: keyof typeof positions;
-  index?: number;
   column?: string;
 };

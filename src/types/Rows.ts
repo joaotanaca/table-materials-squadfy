@@ -1,2 +1,3 @@
-export type Row = { [key: string]: string | number };
-export type Rows = Row[];
+import { Product } from './Product';
+
+export type Rows = Product[];

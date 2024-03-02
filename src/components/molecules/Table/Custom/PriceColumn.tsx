@@ -7,10 +7,10 @@ import BRLFormat from '@/src/helpers/BRLFormat';
 
 type Props = Product & ColumnProps;
 
-const PriceColumn = ({ children, column, position = 'left', index }: PropsWithChildren<Props>) => {
+const PriceColumn = ({ children, column, position = 'left', id }: PropsWithChildren<Props>) => {
   const price = useMemo(() => BRLFormat.format(Number(children)), [children]);
   return (
-    <td colSpan={1} className={`text-gray-800 text-base px-4 py-3 ${positions[position]}`} id={`${column}_${index}`}>
+    <td colSpan={1} className={`text-gray-800 text-base px-4 py-3 ${positions[position]}`} id={`${column}_${id}`}>
       {price}
     </td>
   );
