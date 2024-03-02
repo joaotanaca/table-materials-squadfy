@@ -12,29 +12,45 @@ type Props = Product &
     index: number;
   };
 
-const UnitQuantityColumn = ({ price, unit_quantity, position = 'left', index }: PropsWithChildren<Props>) => {
+const UnitQuantityColumn = ({ price, unit_quantity, index, id }: PropsWithChildren<Props>) => {
   const [rows, setRows] = useAtom(rowsAtom);
   const [total, setTotal] = useAtom(totalAtom);
-  const handleChangeUnitQuantity = useCallback(() => {
-    const prevState = [...rows];
-    prevState[index].unit_quantity = +prevState[index].unit_quantity + 1;
-    prevState[index].subtotal = (+prevState[index].unit_quantity * +price).toLocaleString('pt-BR', {
-      currency: 'BRL',
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2,
-    });
-    setTotal(total + +price);
-    (document.querySelector(`#unit_quantity_${index}`) as HTMLElement).innerText = `${prevState[index].unit_quantity}`;
-    (document.querySelector(`#subtotal_${index}`) as HTMLElement).innerText = `${prevState[index].subtotal}`;
-    setRows(prevState);
-  }, [index, price, rows, setRows, setTotal, total]);
+  const handleChangeUnitQuantity = useCallback(
+    (type: 'increment' | 'decrement' = 'increment') => {
+      const prevState = [...rows];
+      const unitQuantityColumn = document.querySelector(`#unit_quantity_${id}`) as HTMLElement;
+      const subtotalElementColumn = document.querySelector(`#subtotal_${id}`) as HTMLElement;
+      const priceNew = Number(price);
+      let unit_quantity = Number(prevState[index].unit_quantity);
+
+      if (type === 'increment') {
+        unit_quantity += 1;
+        setTotal(total + Number(price));
+      } else if (unit_quantity > 0) {
+        unit_quantity -= 1;
+        setTotal(total - Number(price));
+      }
+      setRows(prevState);
+
+      prevState[index].unit_quantity = unit_quantity;
+      prevState[index].subtotal = unit_quantity * priceNew;
+      unitQuantityColumn.innerText = `${prevState[index].unit_quantity}`;
+      subtotalElementColumn.innerText = BRLFormat.format(prevState[index].subtotal as number);
+    },
+    [id, index, price, rows, setRows, setTotal, total],
+  );
 
   return (
-    <td colSpan={1} className={`text-gray-800 text-base px-4 py-3 ${positions[position]}`}>
-      <span id={`unit_quantity_${index}`}>{unit_quantity}</span>
-      <Button format="square" color="gray" onClick={handleChangeUnitQuantity}>
-        +
-      </Button>
+    <td colSpan={1} className={`text-gray-800 text-base px-4 py-3 flex items-center justify-end gap-3 text-right`}>
+      <span id={`unit_quantity_${id}`}>{unit_quantity}</span>
+      <div className="flex flex-col gap-0.5">
+        <Button format="small" color="gray" onClick={() => handleChangeUnitQuantity('increment')}>
+          <Icon name="more" size={16} />
+        </Button>
+        <Button format="small" color="gray" onClick={() => handleChangeUnitQuantity('decrement')}>
+          <Icon name="minus" size={16} />
+        </Button>
+      </div>
     </td>
   );
 };
