@@ -4,7 +4,7 @@ import service from '@/src/service';
 export default async function Home() {
   const products = await service.products.get();
   return (
-    <main className="flex flex-col items-center justify-between py-10">
+    <main className="flex flex-col items-center justify-between pt-10">
       <DataTable
         className="w-full"
         headers={[
