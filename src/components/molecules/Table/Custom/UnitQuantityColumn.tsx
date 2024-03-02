@@ -1,11 +1,12 @@
 'use client';
 import { Product } from '@/src/types/Product';
 import React, { PropsWithChildren, memo, useCallback } from 'react';
-import positions from '@/src/constants/positions';
 import { ColumnProps } from '@/src/types/ColumnProps';
 import Button from '@/src/components/atom/Button';
 import { useAtom } from 'jotai';
 import { rowsAtom, totalAtom } from '@/src/store/DataTable';
+import BRLFormat from '@/src/helpers/BRLFormat';
+import Icon from '@/src/components/atom/Icon';
 
 type Props = Product &
   ColumnProps & {
