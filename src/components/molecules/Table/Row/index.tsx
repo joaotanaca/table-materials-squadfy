@@ -1,5 +1,4 @@
 'use client';
-/* eslint-disable no-unused-vars */
 import React, { Fragment, memo, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TableHeader } from '@/src/components/organisms/DataTable';
