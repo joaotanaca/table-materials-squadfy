@@ -10,8 +10,8 @@ const Header = () => {
   const headers = useAtomValue(headersAtom) as TableHeader[];
   const HeaderColumns = useMemo(
     () =>
-      headers?.map(({ label, position }) => (
-        <Column key={uuid()} position={position}>
+      headers?.map(({ label, position, name }) => (
+        <Column key={uuid()} position={position} className={name === 'image' ? 'w-20' : ''}>
           {label}
         </Column>
       )),
