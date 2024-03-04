@@ -3,7 +3,7 @@ import React, { Fragment, memo, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TableHeader } from '@/src/components/organisms/DataTable';
 import Column from './Column';
-import Custom from '../Custom';
+import ColumnsComponents from './Columns';
 import { useAtomValue } from 'jotai';
 import { searchAtom } from '@/src/store/DataTable';
 import { Product } from '@/src/types/Product';
@@ -28,7 +28,7 @@ const Row = ({ columns, value }: Props) => {
   const Columns = useMemo(
     () =>
       columns.map(({ custom: customName, name, position = 'left' }) => {
-        const Col = customName ? Custom[customName] : Column;
+        const Col = customName ? ColumnsComponents[customName] : Column;
         return (
           <Fragment key={uuid()}>
             <Col {...value} column={name} position={position}>

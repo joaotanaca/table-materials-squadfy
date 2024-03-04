@@ -4,7 +4,7 @@ import Table from '../molecules/Table';
 import { ColumnProps } from '@/src/types/ColumnProps';
 import { DataTableStore, HydrateAtoms, headersAtom, rowsAtom, totalAtom } from '@/src/store/DataTable';
 import { Rows } from '@/src/types/Rows';
-import Custom from '../molecules/Table/Custom';
+import Columns from '../molecules/Table/Row/Columns';
 import { Provider } from 'jotai';
 import Footer from '../molecules/Table/Footer';
 import SubmitButtom from '../molecules/Table/Footer/SubmitButton';
@@ -12,7 +12,7 @@ import SubmitButtom from '../molecules/Table/Footer/SubmitButton';
 export type TableHeader = ColumnProps & {
   name: string;
   label: string;
-  custom?: keyof typeof Custom;
+  custom?: keyof typeof Columns;
 };
 
 type Props = React.DetailedHTMLProps<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> & {
