@@ -31,10 +31,10 @@ const UnitQuantityColumn = ({ price, unit_quantity, index, id }: PropsWithChildr
         unit_quantity -= 1;
         setTotal(total - Number(price));
       }
-      setRows(prevState);
-
       prevState[index].unit_quantity = unit_quantity;
       prevState[index].subtotal = unit_quantity * priceNew;
+      setRows(prevState);
+
       unitQuantityColumn.innerText = `${prevState[index].unit_quantity}`;
       subtotalElementColumn.innerText = BRLFormat.format(prevState[index].subtotal as number);
     },
