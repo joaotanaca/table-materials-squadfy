@@ -26,10 +26,10 @@ const UnitQuantityColumn = ({ price, unit_quantity, index, id }: PropsWithChildr
 
       if (type === 'increment') {
         unit_quantity += 1;
-        setTotal(total + Number(price));
+        setTotal(total + priceNew);
       } else if (unit_quantity > 0) {
         unit_quantity -= 1;
-        setTotal(total - Number(price));
+        setTotal(total - priceNew);
       }
       prevState[index].unit_quantity = unit_quantity;
       prevState[index].subtotal = unit_quantity * priceNew;
