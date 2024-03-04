@@ -3,19 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node database/index.js",
+    "predev": "npm run database",
     "dev": "next dev --turbo",
+    "prebuild": "npm run database",
     "build": "next build",
+    "prestart": "npm run build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier . --log-level warn",
-    "server": "node database/index.js && npx json-server -p 3001 database/database.json"
+    "database": "node database/index.js",
+    "server": "npm run database && npx json-server -p 3001 database/database.json"
   },
   "dependencies": {
     "jotai": "2",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
