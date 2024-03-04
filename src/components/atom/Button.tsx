@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { memo } from 'react';
 
 const colors = {
   success: 'bg-success text-white',
@@ -27,4 +27,4 @@ const Button = ({ color = 'success', format = 'default', className = '', childre
   );
 };
 
-export default Button;
+export default memo(Button);
