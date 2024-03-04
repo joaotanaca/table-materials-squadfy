@@ -8,6 +8,7 @@ export default async function Page() {
       <DataTable
         className="w-full"
         headers={[
+          { label: '', name: 'image', custom: 'image' },
           { label: 'Material', name: 'name' },
           { label: 'Tipo de material', name: 'type' },
           { label: 'Marca', name: 'brand' },
