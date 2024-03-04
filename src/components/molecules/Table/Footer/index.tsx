@@ -3,7 +3,7 @@ import { totalFormatedAtom } from '@/src/store/DataTable';
 import { useAtomValue } from 'jotai';
 import React, { memo } from 'react';
 
-const FooterWithTotal = () => {
+const Footer = () => {
   const total = useAtomValue(totalFormatedAtom);
   return (
     <tfoot>
@@ -18,4 +18,4 @@ const FooterWithTotal = () => {
   );
 };
 
-export default memo(FooterWithTotal);
+export default memo(Footer);
