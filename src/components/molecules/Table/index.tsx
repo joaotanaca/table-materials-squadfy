@@ -5,7 +5,13 @@ import SearchInput from './Header/SearchInput';
 import Row from './Row';
 import RowColumn from './Row/Column';
 
-const Rows = dynamic(() => import('./Rows'));
+const Rows = dynamic(() => import('./Rows'), {
+  loading: () => (
+    <td>
+      <RowColumn>Loading...</RowColumn>
+    </td>
+  ),
+});
 export default {
   Header: { Component: Header, Column: HeaderColumn, SearchInput },
   Row: { Component: Row, Column: RowColumn },

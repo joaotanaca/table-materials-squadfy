@@ -3,11 +3,15 @@ import React from 'react';
 import Table from '../molecules/Table';
 import { ColumnProps } from '@/src/types/ColumnProps';
 import { DataTableStore, HydrateAtoms, headersAtom, rowsAtom, totalAtom } from '@/src/store/DataTable';
-import { Rows } from '@/src/types/Rows';
+import type { Rows } from '@/src/types/Rows';
 import Columns from '../molecules/Table/Row/Columns';
 import { Provider } from 'jotai';
-import Footer from '../molecules/Table/Footer';
 import SubmitButtom from '../molecules/Table/Footer/SubmitButton';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../molecules/Table/Footer'), {
+  ssr: false,
+});
 
 export type TableHeader = ColumnProps & {
   name: string;
